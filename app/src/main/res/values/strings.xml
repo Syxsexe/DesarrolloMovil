@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">IMCApp</string>
+
+    <!-- Pantalla 1: animación -->
+    <string name="splash_title">IMCApp</string>
+    <string name="splash_subtitle">Índice de Masa Corporal</string>
+    <string name="splash_loading">Cargando…</string>
+
+    <!-- Pantalla 2: calculadora -->
+    <string name="calc_title">Calculadora de IMC</string>
+    <string name="calc_subtitle">Ingresa tus datos para conocer tu índice de masa corporal</string>
+    <string name="calc_weight_label">Peso (kg)</string>
+    <string name="calc_height_label">Altura (cm)</string>
+    <string name="calc_button">Calcular IMC</string>
+    <string name="calc_clear_button">Limpiar</string>
+    <string name="calc_result_title">Tu IMC es</string>
+    <string name="calc_ideal_weight">Peso ideal: %1$s kg – %2$s kg</string>
+    <string name="calc_developer_button">Desarrollador</string>
+
+    <!-- Validaciones -->
+    <string name="error_required">Campo obligatorio</string>
+    <string name="error_invalid_number">Número inválido</string>
+    <string name="error_weight_range">El peso debe estar entre 1 y 500 kg</string>
+    <string name="error_height_range">La altura debe estar entre 50 y 260 cm</string>
+    <string name="error_no_app">No hay una aplicación disponible para esta acción</string>
+
+    <!-- Categorías -->
+    <string name="cat_bajo">Bajo peso</string>
+    <string name="cat_normal">Peso normal</string>
+    <string name="cat_sobrepeso">Sobrepeso</string>
+    <string name="cat_obesidad_1">Obesidad grado I</string>
+    <string name="cat_obesidad_2">Obesidad grado II</string>
+    <string name="cat_obesidad_3">Obesidad grado III</string>
+
+    <string name="msg_bajo">Tu peso está por debajo de lo recomendado. Considera consultar a un profesional de la salud.</string>
+    <string name="msg_normal">¡Excelente! Tu peso está dentro del rango saludable. Mantén tus hábitos.</string>
+    <string name="msg_sobrepeso">Estás algo por encima del rango saludable. Actividad física y una dieta balanceada ayudan.</string>
+    <string name="msg_obesidad_1">Obesidad grado I. Te recomendamos acompañamiento médico y nutricional.</string>
+    <string name="msg_obesidad_2">Obesidad grado II. Es importante buscar atención médica.</string>
+    <string name="msg_obesidad_3">Obesidad grado III. Consulta a un profesional de la salud lo antes posible.</string>
+
+    <string name="disclaimer">El IMC es un indicador orientativo y no reemplaza un diagnóstico médico.</string>
+
+    <!-- Pantalla 3: desarrollador -->
+    <string name="dev_title">Desarrollador</string>
+    <string name="dev_name">Sebastián V.</string>
+    <string name="dev_initials">SV</string>
+    <string name="dev_role">Estudiante de Desarrollo de Software</string>
+    <string name="dev_about_title">Sobre mí</string>
+    <string name="dev_about">Desarrollador Android en formación, interesado en el diseño de interfaces limpias y en crear aplicaciones útiles para el día a día. Esta app fue construida en Kotlin con Material Design 3.</string>
+    <string name="dev_contact_title">Contacto</string>
+    <string name="dev_email">sebas6310l@gmail.com</string>
+    <string name="dev_github">github.com/Syxsexe</string>
+    <string name="dev_location">Colombia</string>
+    <string name="dev_tech_title">Tecnologías usadas</string>
+    <string name="dev_app_version">IMCApp v1.0</string>
+    <string name="dev_back">Volver</string>
+
+    <!-- Descripciones de accesibilidad -->
+    <string name="cd_logo">Logo de la aplicación</string>
+    <string name="cd_back">Volver atrás</string>
+    <string name="cd_marker">Indicador del IMC en la escala</string>
+</resources>

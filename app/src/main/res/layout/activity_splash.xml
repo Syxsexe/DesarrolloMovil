@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/splashRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_splash_gradient"
+    tools:context=".SplashActivity">
+
+    <!-- Anillo punteado que gira alrededor del logo -->
+    <View
+        android:id="@+id/logoRing"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:background="@drawable/bg_logo_ring"
+        app:layout_constraintBottom_toBottomOf="@id/logoCircle"
+        app:layout_constraintEnd_toEndOf="@id/logoCircle"
+        app:layout_constraintStart_toStartOf="@id/logoCircle"
+        app:layout_constraintTop_toTopOf="@id/logoCircle" />
+
+    <!-- Círculo blanco con el icono -->
+    <FrameLayout
+        android:id="@+id/logoCircle"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:background="@drawable/bg_logo_circle"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.36">
+
+        <ImageView
+            android:id="@+id/logoIcon"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/cd_logo"
+            android:src="@drawable/ic_scale" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/splashTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:letterSpacing="0.12"
+        android:text="@string/splash_title"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logoCircle" />
+
+    <TextView
+        android:id="@+id/splashSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:alpha="0.9"
+        android:text="@string/splash_subtitle"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/splashTitle" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/splashProgress"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        app:indicatorColor="@color/white"
+        app:trackColor="#40FFFFFF"
+        app:trackCornerRadius="4dp"
+        app:trackThickness="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

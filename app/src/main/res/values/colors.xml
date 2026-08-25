@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Identidad de la app -->
+    <color name="brand_primary">#FF2F6BFF</color>
+    <color name="brand_primary_dark">#FF1B47B8</color>
+    <color name="brand_accent">#FF00D4A0</color>
+
+    <!-- Degradado de la pantalla de animación -->
+    <color name="splash_gradient_start">#FF1B47B8</color>
+    <color name="splash_gradient_center">#FF2F6BFF</color>
+    <color name="splash_gradient_end">#FF00D4A0</color>
+
+    <!-- Categorías de IMC -->
+    <color name="imc_bajo">#FF4FA3F7</color>
+    <color name="imc_normal">#FF2ECC71</color>
+    <color name="imc_sobrepeso">#FFF1C40F</color>
+    <color name="imc_obesidad_1">#FFF39C12</color>
+    <color name="imc_obesidad_2">#FFE67E22</color>
+    <color name="imc_obesidad_3">#FFE74C3C</color>
+</resources>

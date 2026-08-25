@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme (modo oscuro). -->
+    <style name="Base.Theme.IMCApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#FF8FB0FF</item>
+        <item name="colorOnPrimary">#FF10275F</item>
+        <item name="colorSecondary">@color/brand_accent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+</resources>
