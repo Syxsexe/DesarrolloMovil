@@ -82,8 +82,8 @@
 
     <!-- Pantalla 3: desarrollador -->
     <string name="dev_title">Desarrollador</string>
-    <string name="dev_name">Sebastián V.</string>
-    <string name="dev_initials">SV</string>
+    <string name="dev_name" translatable="false">Sebastián V.</string>
+    <string name="dev_initials" translatable="false">SV</string>
     <string name="dev_role">Estudiante de Desarrollo de Software</string>
     <string name="dev_about_title">Sobre mí</string>
     <string name="dev_about">Desarrollador Android en formación, interesado en el diseño de interfaces limpias y en crear aplicaciones útiles para el día a día. Esta app fue construida en Kotlin con Material Design 3.</string>

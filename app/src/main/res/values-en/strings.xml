@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">IMCApp</string>
+
+    <!-- Screen 1: animation -->
+    <string name="splash_title">IMCApp</string>
+    <string name="splash_subtitle">Body Mass Index</string>
+    <string name="splash_loading">Loading…</string>
+
+    <!-- Screen 2: calculator -->
+    <string name="calc_title">BMI Calculator</string>
+    <string name="calc_subtitle">Enter your data to find out your body mass index</string>
+    <string name="calc_weight_label">Weight (kg)</string>
+    <string name="calc_height_label">Height (cm)</string>
+    <string name="calc_button">Calculate BMI</string>
+    <string name="calc_clear_button">Clear</string>
+    <string name="calc_result_title">Your BMI is</string>
+    <string name="calc_ideal_weight">Ideal weight: %1$s kg – %2$s kg</string>
+    <string name="calc_developer_button">Developer</string>
+    <string name="calc_history_button">History</string>
+    <string name="calc_gender_label">Sex</string>
+    <string name="calc_lorentz_weight">Ideal weight (Lorentz, %1$s): %2$s kg</string>
+    <string name="calc_saved">Measurement saved to history</string>
+
+    <!-- Validation -->
+    <string name="error_required">Required field</string>
+    <string name="error_invalid_number">Invalid number</string>
+    <string name="error_weight_range">Weight must be between 1 and 500 kg</string>
+    <string name="error_height_range">Height must be between 50 and 260 cm</string>
+    <string name="error_no_app">No app available for this action</string>
+    <string name="error_gender_required">Select male or female</string>
+
+    <!-- Categories -->
+    <string name="cat_bajo">Underweight</string>
+    <string name="cat_normal">Normal weight</string>
+    <string name="cat_sobrepeso">Overweight</string>
+    <string name="cat_obesidad_1">Obesity class I</string>
+    <string name="cat_obesidad_2">Obesity class II</string>
+    <string name="cat_obesidad_3">Obesity class III</string>
+
+    <string name="msg_bajo">Your weight is below the recommended range. Consider consulting a healthcare professional.</string>
+    <string name="msg_normal">Excellent! Your weight is within the healthy range. Keep up your habits.</string>
+    <string name="msg_sobrepeso">You are slightly above the healthy range. Physical activity and a balanced diet can help.</string>
+    <string name="msg_obesidad_1">Obesity class I. We recommend medical and nutritional guidance.</string>
+    <string name="msg_obesidad_2">Obesity class II. It is important to seek medical care.</string>
+    <string name="msg_obesidad_3">Obesity class III. See a healthcare professional as soon as possible.</string>
+
+    <!-- Sex -->
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
+    <string name="gender_male_body_fat" formatted="false">Healthy body fat in men: 8 % – 19 %</string>
+    <string name="gender_female_body_fat" formatted="false">Healthy body fat in women: 21 % – 33 %</string>
+
+    <string name="disclaimer">BMI is a general indicator and does not replace a medical diagnosis. The WHO ranges are the same for men and women; sex only changes the Lorentz ideal weight and the reference body fat.</string>
+
+    <!-- History screen -->
+    <string name="history_title">History</string>
+    <string name="history_subtitle">Your saved measurements, from newest to oldest</string>
+    <string name="history_filter_all">All</string>
+    <string name="history_filter_male">Men</string>
+    <string name="history_filter_female">Women</string>
+    <plurals name="history_summary">
+        <item quantity="one">%1$d measurement · BMI %2$s</item>
+        <item quantity="other">%1$d measurements · Average BMI %2$s</item>
+    </plurals>
+    <string name="history_empty_title">No measurements yet</string>
+    <string name="history_empty_body">Calculate your BMI and it will be saved here automatically.</string>
+    <string name="history_empty_filtered_title">No results</string>
+    <string name="history_empty_filtered">There are no measurements for %1$s. Try another filter.</string>
+    <string name="history_summary_empty">No measurements</string>
+    <string name="history_item_data">%1$s kg · %2$s cm</string>
+    <string name="history_clear">Delete all</string>
+    <string name="history_clear_title">Delete history?</string>
+    <string name="history_clear_message">All saved measurements will be deleted. This action cannot be undone.</string>
+    <string name="history_clear_confirm">Delete</string>
+    <string name="history_cancel">Cancel</string>
+    <string name="history_deleted">Measurement deleted</string>
+    <string name="history_undo">Undo</string>
+    <plurals name="history_limit_note">
+        <item quantity="one">The last measurement is saved.</item>
+        <item quantity="other">The last %1$d measurements are saved.</item>
+    </plurals>
+
+    <!-- Screen 3: developer -->
+    <string name="dev_title">Developer</string>
+    <string name="dev_role">Software Development Student</string>
+    <string name="dev_about_title">About me</string>
+    <string name="dev_about">Android developer in training, interested in clean interface design and in building apps that are useful in everyday life. This app was built in Kotlin with Material Design 3.</string>
+    <string name="dev_contact_title">Contact</string>
+    <string name="dev_tech_title">Technologies used</string>
+    <string name="dev_app_version">IMCApp v1.0</string>
+    <string name="dev_back">Back</string>
+
+    <!-- Accessibility descriptions -->
+    <string name="cd_logo">App logo</string>
+    <string name="cd_back">Go back</string>
+    <string name="cd_marker">BMI indicator on the scale</string>
+    <string name="cd_gender">Sex of the measurement</string>
+    <string name="cd_delete">Delete measurement</string>
+</resources>
