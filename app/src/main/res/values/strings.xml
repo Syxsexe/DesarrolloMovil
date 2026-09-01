@@ -16,6 +16,10 @@
     <string name="calc_result_title">Tu IMC es</string>
     <string name="calc_ideal_weight">Peso ideal: %1$s kg – %2$s kg</string>
     <string name="calc_developer_button">Desarrollador</string>
+    <string name="calc_history_button">Historial</string>
+    <string name="calc_gender_label">Sexo</string>
+    <string name="calc_lorentz_weight">Peso ideal (Lorentz, %1$s): %2$s kg</string>
+    <string name="calc_saved">Medición guardada en el historial</string>
 
     <!-- Validaciones -->
     <string name="error_required">Campo obligatorio</string>
@@ -23,6 +27,7 @@
     <string name="error_weight_range">El peso debe estar entre 1 y 500 kg</string>
     <string name="error_height_range">La altura debe estar entre 50 y 260 cm</string>
     <string name="error_no_app">No hay una aplicación disponible para esta acción</string>
+    <string name="error_gender_required">Selecciona hombre o mujer</string>
 
     <!-- Categorías -->
     <string name="cat_bajo">Bajo peso</string>
@@ -39,7 +44,41 @@
     <string name="msg_obesidad_2">Obesidad grado II. Es importante buscar atención médica.</string>
     <string name="msg_obesidad_3">Obesidad grado III. Consulta a un profesional de la salud lo antes posible.</string>
 
-    <string name="disclaimer">El IMC es un indicador orientativo y no reemplaza un diagnóstico médico.</string>
+    <!-- Sexo -->
+    <string name="gender_male">Hombre</string>
+    <string name="gender_female">Mujer</string>
+    <string name="gender_male_body_fat" formatted="false">Grasa corporal saludable en hombres: 8 % – 19 %</string>
+    <string name="gender_female_body_fat" formatted="false">Grasa corporal saludable en mujeres: 21 % – 33 %</string>
+
+    <string name="disclaimer">El IMC es un indicador orientativo y no reemplaza un diagnóstico médico. Los rangos de la OMS son iguales para hombres y mujeres; el sexo solo cambia el peso ideal de Lorentz y la grasa corporal de referencia.</string>
+
+    <!-- Pantalla de historial -->
+    <string name="history_title">Historial</string>
+    <string name="history_subtitle">Tus mediciones guardadas, de la más reciente a la más antigua</string>
+    <string name="history_filter_all">Todos</string>
+    <string name="history_filter_male">Hombres</string>
+    <string name="history_filter_female">Mujeres</string>
+    <plurals name="history_summary">
+        <item quantity="one">%1$d medición · IMC %2$s</item>
+        <item quantity="other">%1$d mediciones · IMC promedio %2$s</item>
+    </plurals>
+    <string name="history_empty_title">Todavía no hay mediciones</string>
+    <string name="history_empty_body">Calcula tu IMC y se guardará aquí automáticamente.</string>
+    <string name="history_empty_filtered_title">Sin resultados</string>
+    <string name="history_empty_filtered">No hay mediciones de %1$s. Prueba con otro filtro.</string>
+    <string name="history_summary_empty">Sin mediciones</string>
+    <string name="history_item_data">%1$s kg · %2$s cm</string>
+    <string name="history_clear">Borrar todo</string>
+    <string name="history_clear_title">¿Borrar el historial?</string>
+    <string name="history_clear_message">Se eliminarán todas las mediciones guardadas. Esta acción no se puede deshacer.</string>
+    <string name="history_clear_confirm">Borrar</string>
+    <string name="history_cancel">Cancelar</string>
+    <string name="history_deleted">Medición eliminada</string>
+    <string name="history_undo">Deshacer</string>
+    <plurals name="history_limit_note">
+        <item quantity="one">Se guarda la última medición.</item>
+        <item quantity="other">Se guardan las últimas %1$d mediciones.</item>
+    </plurals>
 
     <!-- Pantalla 3: desarrollador -->
     <string name="dev_title">Desarrollador</string>
@@ -60,4 +99,6 @@
     <string name="cd_logo">Logo de la aplicación</string>
     <string name="cd_back">Volver atrás</string>
     <string name="cd_marker">Indicador del IMC en la escala</string>
+    <string name="cd_gender">Sexo de la medición</string>
+    <string name="cd_delete">Eliminar medición</string>
 </resources>

@@ -20,4 +20,8 @@
     <color name="imc_obesidad_1">#FFF39C12</color>
     <color name="imc_obesidad_2">#FFE67E22</color>
     <color name="imc_obesidad_3">#FFE74C3C</color>
+
+    <!-- Sexo -->
+    <color name="gender_male">#FF3B82F6</color>
+    <color name="gender_female">#FFEC4899</color>
 </resources>

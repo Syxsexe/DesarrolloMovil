@@ -41,6 +41,12 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
+        <!-- Historial de mediciones -->
+        <activity
+            android:name=".HistoryActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
         <!-- Pantalla 3: detalles del desarrollador -->
         <activity
             android:name=".DeveloperActivity"

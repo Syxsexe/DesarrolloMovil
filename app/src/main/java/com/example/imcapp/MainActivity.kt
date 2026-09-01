@@ -19,7 +19,9 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.doOnLayout
 import androidx.core.widget.NestedScrollView
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.button.MaterialButtonToggleGroup
 import com.google.android.material.card.MaterialCardView
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import java.util.Locale
@@ -38,9 +40,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var categoryChip: TextView
     private lateinit var categoryMessage: TextView
     private lateinit var idealWeight: TextView
+    private lateinit var lorentzWeight: TextView
+    private lateinit var bodyFatNote: TextView
+    private lateinit var genderBadge: TextView
+    private lateinit var genderGroup: MaterialButtonToggleGroup
+    private lateinit var genderError: TextView
     private lateinit var markerTrack: FrameLayout
     private lateinit var scaleMarker: ImageView
 
+    private lateinit var history: ImcHistoryStore
     private var valueAnimator: ValueAnimator? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,16 +57,38 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         registerSlideTransitions()
 
+        history = ImcHistoryStore(this)
+
         bindViews()
         applyWindowInsets()
+        restoreLastGender()
 
         findViewById<MaterialButton>(R.id.calculateButton).setOnClickListener { calculate() }
         findViewById<MaterialButton>(R.id.clearButton).setOnClickListener { clear() }
         findViewById<MaterialButton>(R.id.developerButton).setOnClickListener { openDeveloperScreen() }
+        findViewById<MaterialButton>(R.id.historyButton).setOnClickListener { openHistoryScreen() }
 
         // Al escribir de nuevo se limpia el error anterior.
         weightInput.setOnFocusChangeListener { _, _ -> weightLayout.error = null }
         heightInput.setOnFocusChangeListener { _, _ -> heightLayout.error = null }
+        genderGroup.addOnButtonCheckedListener { _, _, _ -> genderError.visibility = View.GONE }
+    }
+
+    /** El sexo elegido la última vez queda preseleccionado. */
+    private fun restoreLastGender() {
+        val checked = when (history.lastGender) {
+            Gender.HOMBRE -> R.id.maleButton
+            Gender.MUJER -> R.id.femaleButton
+            null -> return
+        }
+        genderGroup.check(checked)
+    }
+
+    /** Sexo seleccionado, o null si el usuario todavía no eligió. */
+    private fun selectedGender(): Gender? = when (genderGroup.checkedButtonId) {
+        R.id.maleButton -> Gender.HOMBRE
+        R.id.femaleButton -> Gender.MUJER
+        else -> null
     }
 
     private fun bindViews() {
@@ -71,6 +101,11 @@ class MainActivity : AppCompatActivity() {
         categoryChip = findViewById(R.id.categoryChip)
         categoryMessage = findViewById(R.id.categoryMessage)
         idealWeight = findViewById(R.id.idealWeight)
+        lorentzWeight = findViewById(R.id.lorentzWeight)
+        bodyFatNote = findViewById(R.id.bodyFatNote)
+        genderBadge = findViewById(R.id.genderBadge)
+        genderGroup = findViewById(R.id.genderGroup)
+        genderError = findViewById(R.id.genderError)
         markerTrack = findViewById(R.id.markerTrack)
         scaleMarker = findViewById(R.id.scaleMarker)
     }
@@ -97,11 +132,24 @@ class MainActivity : AppCompatActivity() {
 
     private fun calculate() {
         hideKeyboard()
+        val gender = selectedGender()
+        genderError.visibility = if (gender == null) View.VISIBLE else View.GONE
         val weight = readField(weightLayout, weightInput, ImcCalculator.MIN_WEIGHT_KG, ImcCalculator.MAX_WEIGHT_KG, R.string.error_weight_range)
         val height = readField(heightLayout, heightInput, ImcCalculator.MIN_HEIGHT_CM, ImcCalculator.MAX_HEIGHT_CM, R.string.error_height_range)
-        if (weight == null || height == null) return
+        if (gender == null || weight == null || height == null) return
 
-        showResult(ImcCalculator.calculate(weight, height))
+        val result = ImcCalculator.calculate(weight, height, gender)
+        showResult(result)
+        saveToHistory(result, weight, height)
+    }
+
+    /** Cada cálculo válido queda registrado en el historial. */
+    private fun saveToHistory(result: ImcResult, weightKg: Double, heightCm: Double) {
+        history.lastGender = result.gender
+        history.add(ImcRecord.from(result, weightKg, heightCm, System.currentTimeMillis()))
+        Snackbar.make(findViewById(R.id.main), R.string.calc_saved, Snackbar.LENGTH_SHORT)
+            .setAction(R.string.calc_history_button) { openHistoryScreen() }
+            .show()
     }
 
     /** Valida un campo y devuelve su valor, o null marcando el error correspondiente. */
@@ -132,6 +180,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun showResult(result: ImcResult) {
         val color = ContextCompat.getColor(this, result.category.colorRes)
+        val genderColor = ContextCompat.getColor(this, result.gender.colorRes)
+
+        genderBadge.text = getString(result.gender.labelRes)
+        genderBadge.backgroundTintList = ColorStateList.valueOf(genderColor)
+        genderBadge.setCompoundDrawablesRelativeWithIntrinsicBounds(
+            ContextCompat.getDrawable(this, result.gender.iconRes), null, null, null,
+        )
+        lorentzWeight.text = getString(
+            R.string.calc_lorentz_weight,
+            getString(result.gender.labelRes).lowercase(SPANISH),
+            format(result.lorentzWeight),
+        )
+        bodyFatNote.text = getString(result.gender.bodyFatRes)
 
         categoryChip.text = getString(result.category.labelRes)
         categoryChip.backgroundTintList = ColorStateList.valueOf(color)
@@ -193,6 +254,7 @@ class MainActivity : AppCompatActivity() {
         heightInput.text = null
         weightLayout.error = null
         heightLayout.error = null
+        genderError.visibility = View.GONE
         weightInput.requestFocus()
 
         if (resultCard.visibility == View.VISIBLE) {
@@ -213,6 +275,11 @@ class MainActivity : AppCompatActivity() {
         applyLegacySlideOpen()
     }
 
+    private fun openHistoryScreen() {
+        startActivity(Intent(this, HistoryActivity::class.java))
+        applyLegacySlideOpen()
+    }
+
     private fun hideKeyboard() {
         val focused = currentFocus ?: return
         val imm = getSystemService(InputMethodManager::class.java)
@@ -225,5 +292,9 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         valueAnimator?.cancel()
         super.onDestroy()
+    }
+
+    private companion object {
+        val SPANISH: Locale = Locale.forLanguageTag("es")
     }
 }
