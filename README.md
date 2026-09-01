@@ -38,9 +38,6 @@ git commit -m "Primer commit"
 git remote add origin https://github.com/Syxsexe/DesarrolloMovil.git
 git push -u origin nombre-del-proyecto
 ```
-
-Después basta con agregar una fila a la tabla de arriba desde la rama `main`.
-
 ---
 
 Autor: [@Syxsexe](https://github.com/Syxsexe)
